@@ -1,6 +1,6 @@
 # Event Sources
 
-User-listed sources are primary for their standard location. Codex may use other public sources for verification or one-off discovery, but should not add or log new primary-source suggestions during normal scans.
+User-listed sources are primary for their standard location. The agent may use other public sources for verification or one-off discovery, but should not add or log new primary-source suggestions during normal scans.
 
 Replace the placeholder locations and sources with the user's actual locations and preferred event sources during setup.
 

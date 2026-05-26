@@ -1,6 +1,6 @@
 # Operating Model
 
-This runtime should feel native to Codex: mostly documents, skills, checklists, and run notes, with code added only when it clearly reduces repeated friction.
+This runtime should feel native to your coding agent: mostly documents, skills, checklists, and run notes, with code added only when it clearly reduces repeated friction.
 
 ## Runtime Boundary
 

@@ -34,5 +34,5 @@ Optional additional standard location: (FILL IN YOUR PREFERENCE, eg your working
 
 Optional: install the Calendar tool so the scanner can use calendar availability and add selected events when I explicitly ask.
 
-Optional: create a weekly Codex automation from this runtime folder, running (FILL IN YOUR PREFERENCE, eg "weekly on Mondays at 09:00 AM, my local time zone. Find events for the next week.").
+Optional: create a weekly automation from this runtime folder, running (FILL IN YOUR PREFERENCE, eg "weekly on Mondays at 09:00 AM, my local time zone. Find events for the next week.").
 ```
