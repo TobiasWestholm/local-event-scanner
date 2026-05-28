@@ -1,24 +1,17 @@
----
-name: event-scanner-discovery
-description: Use during every Event Scanner run when discovering candidate events from primary or public sources. Use for the default location or any requested geography/date window before scoring or shortlist review.
-metadata:
-  short-description: Discover event candidates
----
+# Step 1: Discovery
 
-# Event Scanner Discovery
-
-Use this skill when discovering candidate events from user-provided or public sources.
+Discover candidate events from user-provided or public sources.
 
 ## Inputs
 
-- Source priorities from `preferences/sources.md`.
-- Geography and availability guidance from `preferences/availability-rules.md`.
+- Source priorities from `.agents/skills/event-scanner/assets/sources.md`.
+- Geography and availability guidance from `.agents/skills/event-scanner/references/availability-rules.md`.
 - Any date window or topic requested by the user.
 
 ## Procedure
 
 1. Add `event-scanner-discovery` to the current run note's `Skills used` list before discovery work starts.
-2. Resolve the scan location from the user request and `preferences/sources.md`; if the user did not specify a location, use the configured default location.
+2. Resolve the scan location from the user request and `.agents/skills/event-scanner/assets/sources.md`; if the user did not specify a location, use the configured default location.
 3. Check primary sources for the requested location first when they exist.
 4. If the requested location has no primary sources, or is not a configured standard location, use public exploration for that location and record that source coverage is exploratory.
 5. Use public pages and source links wherever possible.
@@ -30,8 +23,6 @@ Use this skill when discovering candidate events from user-provided or public so
 11. Replace the run note's `Candidate Events` placeholder with concise candidate notes or a short discovery summary.
 
 ## Candidate Event Shape
-
-Use this structure when possible:
 
 ```md
 ## Event Title
@@ -48,5 +39,6 @@ Use this structure when possible:
 
 ## Output
 
-Return candidate events with source links and confidence, usually a minimum of 8 events unless the request is very niche. Do not produce the final ranked shortlist unless also using `event-scanner-shortlist-review`.
-When invoked, explicitly say: "[Using event-scanner-discovery skill]"
+Return candidate events with source links and confidence, usually a minimum of 8 events unless the request is very niche. Do not produce the final ranked shortlist unless also running step-4-shortlist-review.
+
+When starting this step, explicitly say: "[Step 1: Discovery]"

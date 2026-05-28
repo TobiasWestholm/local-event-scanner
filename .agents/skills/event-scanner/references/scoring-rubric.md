@@ -6,7 +6,7 @@ Use explainable ranking rather than opaque numeric scoring. The final output sho
 
 Prioritize events using these factors:
 
-- Fit with `preferences/taste-profile.md`.
+- Fit with `.agents/skills/event-scanner/assets/taste-profile.md`.
 - Strength of source evidence and event details.
 - Practicality for the requested location, or the configured default location when none is requested.
 - Novelty or surprise potential.
@@ -53,4 +53,4 @@ For each shortlisted event, include:
 
 ## Preference Learning
 
-Do not suggest preference updates during normal scans. Check for taste-profile updates only after `event-scanner-add-to-calendar` is used. Send suggestions in chat only, and apply them only after approval.
+Do not suggest preference updates during normal scans. Check for taste-profile updates only after `steps/step-5-add-to-calendar.md` is followed. Send suggestions in chat only, and apply them only after approval.

@@ -1,20 +1,13 @@
----
-name: event-scanner-scoring
-description: Use during every Event Scanner run when scoring candidate events against preferences, availability rules, date-window practicality, and dealbreakers.
-metadata:
-  short-description: Score event candidates
----
+# Step 2: Scoring
 
-# Event Scanner Scoring
-
-Use this skill when evaluating candidate events against the human's preferences.
+Evaluate candidate events against preferences, availability rules, date-window practicality, and dealbreakers.
 
 ## Inputs
 
-- Candidate events.
-- `preferences/taste-profile.md`.
-- `preferences/scoring-rubric.md`.
-- `preferences/availability-rules.md`.
+- Candidate events from step-1-discovery.
+- `.agents/skills/event-scanner/assets/taste-profile.md`.
+- `.agents/skills/event-scanner/references/scoring-rubric.md`.
+- `.agents/skills/event-scanner/references/availability-rules.md`.
 
 ## Procedure
 
@@ -47,8 +40,8 @@ Use this skill when evaluating candidate events against the human's preferences.
 
 ## Rule
 
-Do not suggest preference updates during scoring or normal scans. Learning suggestions belong only in `event-scanner-add-to-calendar` after the user explicitly adds an event to Google Calendar.
+Do not suggest preference updates during scoring or normal scans. Learning suggestions belong only in step-5-add-to-calendar after the user explicitly adds an event to Google Calendar.
 
 ## Output
 
-When invoked, explicitly say: "[Using event-scanner-scoring skill]"
+When starting this step, explicitly say: "[Step 2: Scoring]"

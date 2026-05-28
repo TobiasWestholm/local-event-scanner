@@ -47,7 +47,7 @@ Examples:
 
 ## Update Rule
 
-`event-scanner-run` creates the working run note before discovery starts. During the run, skills may use temporary `Candidate Events`, `Scored Candidates`, and `Calendar Review` sections as working areas. Each skill adds itself to `Skills used` when it starts.
+`event-scanner` creates the working run note before discovery starts. During the run, skills may use temporary `Candidate Events`, `Scored Candidates`, and `Calendar Review` sections as working areas. Each skill adds itself to `Skills used` when it starts.
 
 Before finishing, `event-scanner-shortlist-review` removes those temporary sections and keeps only:
 

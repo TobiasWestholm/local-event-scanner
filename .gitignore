@@ -1,7 +1,7 @@
 # Local user configuration
-/preferences/taste-profile.md
-/preferences/sources.md
+/.agents/skills/event-scanner-run/assets/taste-profile.md
+/.agents/skills/event-scanner-run/assets/sources.md
 
 # Runtime outputs
-/runs/*.md
-!/runs/README.md
+/.agents/skills/event-scanner-run/runs/*.md
+!/.agents/skills/event-scanner-run/runs/README.md

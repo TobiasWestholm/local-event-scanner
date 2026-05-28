@@ -6,7 +6,7 @@ Use these rules as soft practical guidance when ranking and caveating events.
 
 Default target:
 
-- Use the default location defined in `preferences/sources.md`.
+- Use the default location defined in `.agents/skills/event-scanner/assets/sources.md`.
 
 When the user gives a different location, use that instead:
 

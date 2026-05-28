@@ -1,30 +1,29 @@
 # Operating Model
 
-This runtime should feel native to your coding agent: mostly documents, skills, checklists, and run notes, with code added only when it clearly reduces repeated friction.
+This skill uses documents, steps, checklists, and run notes as its primary working format. Add code only when it clearly reduces repeated friction.
 
 ## Boot Sequence
 
 Read these files before every scan:
 
-1. `docs/privacy-and-access.md` — storage and access rules
-2. `preferences/sources.md` — primary sources per location; resolve scan location here
-3. `preferences/taste-profile.md` — interests, dealbreakers, and surprise signals
-4. `preferences/scoring-rubric.md` — ranking factors, labels, and explanation requirements
-5. `preferences/availability-rules.md` — geography, practicality caveats, calendar privacy
+1. `.agents/skills/event-scanner/references/privacy-and-access.md` — storage and access rules
+2. `.agents/skills/event-scanner/assets/sources.md` — primary sources per location; resolve scan location here
+3. `.agents/skills/event-scanner/assets/taste-profile.md` — interests, dealbreakers, and surprise signals
+4. `.agents/skills/event-scanner/references/scoring-rubric.md` — ranking factors, labels, and explanation requirements
+5. `.agents/skills/event-scanner/references/availability-rules.md` — geography, practicality caveats, calendar privacy
 
 ## Skill Pipeline
 
-Invoke these repo-local skills in order for every scan:
+Invoke the `event-scanner` skill for every scan. It applies these steps in order:
 
-1. `event-scanner-run` — creates the run note before any other work starts
-2. `event-scanner-discovery` — finds candidate events from primary and public sources
-3. `event-scanner-scoring` — scores and ranks candidates using the rubric
-4. `event-scanner-calendar-review` — checks calendar practicality
-5. `event-scanner-shortlist-review` — produces the final ranked shortlist in the run note
+1. `steps/step-1-discovery.md` — finds candidate events from primary and public sources
+2. `steps/step-2-scoring.md` — scores and ranks candidates using the rubric
+3. `steps/step-3-calendar-review.md` — checks calendar practicality
+4. `steps/step-4-shortlist-review.md` — produces the final ranked shortlist in the run note
 
-Each skill logs itself to the run note when it starts. A skipped skill is a defect — call it out and repair it before finishing.
+Each step logs itself to the run note when it starts. A skipped step is a defect — call it out and repair it before finishing.
 
-For adding a specific event to Google Calendar, invoke `event-scanner-add-to-calendar` only when the user explicitly asks.
+For adding a specific event to Google Calendar, follow `steps/step-5-add-to-calendar.md` only when the user explicitly asks.
 
 ## Quick Reference
 
@@ -36,22 +35,20 @@ For adding a specific event to Google Calendar, invoke `event-scanner-add-to-cal
 - **Farther-future:** allow longer, higher-commitment events when fit is strong
 - **Dealbreakers (always filter out):** fully booked, women/non-binary only, student-only, under-30-only, strongly misaligned with vegan/feminist/consent-aware values
 
-## Runtime Boundary
+## Boundary
 
-Operate inside this runtime package.
-
-Read runtime instructions, preferences, repo-local skills, and run notes from this folder. Write runtime outputs inside this folder. Treat files outside this package as project-building files unless the user explicitly asks to modify the project.
+Read and write only within this skill's folder. Do not modify files outside it unless the user explicitly asks to change the project.
 
 ## Running An Event Scan
 
-1. Read the relevant preferences in `preferences/`.
-2. Invoke `event-scanner-run`, which creates an empty run note in `runs/`.
-3. Each runtime skill logs itself in that run note when it starts.
-4. Resolve the requested location from `preferences/sources.md`; if the user did not specify a location, use the configured default location.
+1. Read the relevant references in `.agents/skills/event-scanner/references/`.
+2. Invoke `event-scanner`, which creates an empty run note in `.agents/skills/event-scanner/runs/`.
+3. Each pipeline step logs itself in that run note when it starts.
+4. Resolve the requested location from `.agents/skills/event-scanner/assets/sources.md`; if the user did not specify a location, use the configured default location.
 5. Use user-listed priority sources for the requested location first, when they exist.
 6. Discover candidate events and preserve source links.
 7. Normalize candidates into comparable notes.
-8. Score candidates using `preferences/scoring-rubric.md`.
+8. Score candidates using `.agents/skills/event-scanner/references/scoring-rubric.md`.
 9. Apply calendar-aware review when calendar context is available or explicitly provided.
 10. Populate the existing run note with the ranked shortlist, reasons, caveats, source links, and next actions.
 11. Remove temporary candidate, scoring, and calendar-review sections before finishing the run note.
@@ -60,7 +57,7 @@ Read runtime instructions, preferences, repo-local skills, and run notes from th
 ## Source Handling
 
 - User-listed sources have priority.
-- Standard locations and the default location are defined in `preferences/sources.md`.
+- Standard locations and the default location are defined in `.agents/skills/event-scanner/assets/sources.md`.
 - If the user does not specify a location, use the default location.
 - If the requested location has no primary sources, explore public event sources for that location and keep source links.
 - Newly discovered sources may be used for exploration or verification, but normal scans should not propose or log new primary sources.
@@ -106,7 +103,7 @@ Required fields:
 - Description.
 
 If any required field is missing or ambiguous, ask for the missing detail before creating the calendar event. Do not infer uncertain times, locations, or online links.
-After adding an event to the calendar, always perform the post-add learning check in `event-scanner-add-to-calendar`. Send the result in chat only. Do not write these suggestions into run notes.
+After adding an event to the calendar, always perform the post-add learning check in `steps/step-5-add-to-calendar.md`. Send the result in chat only. Do not write these suggestions into run notes.
 
 ## Privacy Behavior
 
@@ -114,7 +111,7 @@ After adding an event to the calendar, always perform the post-add learning chec
 - Store only calendar availability summaries, not raw calendar event details.
 - Do not store raw private data.
 - Do not log liked/disliked events unless the user asks.
-- Perform source and taste-profile learning checks only after `event-scanner-add-to-calendar` is used, and only as a chat message. Apply changes only after approval.
+- Perform source and taste-profile learning checks only after `steps/step-5-add-to-calendar.md` is used, and only as a chat message. Apply changes only after approval.
 
 ## Low-Code Boundary
 
@@ -125,4 +122,4 @@ Use docs and skills first. Add code only when:
 - Validation needs deterministic checks.
 - Formatting run outputs by hand becomes annoying.
 
-When adding code, keep it small, boring, and subordinate to the runtime docs.
+When adding code, keep it small, boring, and subordinate to the skill's docs.

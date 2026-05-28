@@ -1,18 +1,11 @@
----
-name: event-scanner-shortlist-review
-description: Use during every Event Scanner run when turning scored and calendar-reviewed candidates into the final ranked shortlist and run note.
-metadata:
-  short-description: Review and format shortlists
----
+# Step 4: Shortlist Review
 
-# Event Scanner Shortlist Review
-
-Use this skill when turning scored candidates into the final user-facing event shortlist.
+Turn scored candidates into the final user-facing event shortlist.
 
 ## Inputs
 
-- Scored candidate events.
-- Calendar-reviewed practicality notes when available.
+- Scored candidate events from step-2-scoring.
+- Calendar-reviewed practicality notes from step-3-calendar-review when available.
 - Preference and availability rules.
 - Any user-requested date window or geography.
 
@@ -23,7 +16,7 @@ Use this skill when turning scored candidates into the final user-facing event s
 3. Keep the output concise and decision-oriented.
 4. Include source links, caveats, confidence, and next actions.
 5. Do not include proposed source additions or taste-profile update suggestions in the run note.
-6. Populate the existing run note created by `event-scanner-run`; do not create a separate run note from scratch.
+6. Populate the existing run note created by event-scanner; do not create a separate run note from scratch.
 7. Replace the run note's `Ranked Shortlist` and `Privacy Check` placeholders with final content.
 8. Remove the temporary `Candidate Events`, `Scored Candidates`, and `Calendar Review` sections from the final run note.
 9. Preserve calendar effects only as concise caveats inside the ranked shortlist.
@@ -47,7 +40,7 @@ Use this skill when turning scored candidates into the final user-facing event s
 
 ## Run Notes
 
-Use the existing run note created by `event-scanner-run`. Do not bulk-add skills at the end. Each skill is responsible for adding itself to the run note when that skill starts.
+Use the existing run note created by event-scanner. Do not bulk-add steps at the end. Each step is responsible for adding itself to the run note when that step starts.
 
 Final run notes should be lean. Intermediate sections are working areas only; remove them before finishing so the saved note contains:
 
@@ -57,4 +50,4 @@ Final run notes should be lean. Intermediate sections are working areas only; re
 
 ## Output
 
-When invoked, explicitly say: "[Using event-scanner-shortlist-review skill]"
+When starting this step, explicitly say: "[Step 4: Shortlist Review]"

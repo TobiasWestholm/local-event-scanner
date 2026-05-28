@@ -1,6 +1,6 @@
 # Privacy And Access
 
-This runtime should be useful without collecting more personal data than necessary.
+This skill should be useful without collecting more personal data than necessary.
 
 ## Storage Rules
 

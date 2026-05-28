@@ -1,13 +1,6 @@
----
-name: event-scanner-add-to-calendar
-description: Use only when the user explicitly asks to add a specific event scanner recommendation to Google Calendar. Creates one calendar event from a selected recommendation with title, time/date, address or online link, and description.
-metadata:
-  short-description: Add selected event to calendar
----
+# Step 5: Add to Calendar
 
-# Event Scanner Add To Calendar
-
-Use this skill only for explicit user requests to add a specific suggested event to Google Calendar.
+Use this step only for explicit user requests to add a specific suggested event to Google Calendar.
 
 ## Required Inputs
 
@@ -30,14 +23,14 @@ Use this skill only for explicit user requests to add a specific suggested event
 8. Use the calendar's default reminders unless the user asks otherwise.
 9. Do not create recurring events unless the user asks.
 10. Report the created event title, date/time, and location/link back to the user.
-11. After the event is created, read or check `preferences/sources.md` and `preferences/taste-profile.md`.
+11. After the event is created, read or check `.agents/skills/event-scanner/assets/sources.md` and `.agents/skills/event-scanner/assets/taste-profile.md`.
 12. Always send a chat-only `Post-add learning check`.
 13. In that check, include source and taste-profile suggestions only when the evidence is strong:
-    - Suggest adding a new primary source only if the added event came from a source not covered in `preferences/sources.md`.
-    - Suggest adding a new taste-profile interest only if the added event reveals a recurring preference not already covered in `preferences/taste-profile.md`.
+    - Suggest adding a new primary source only if the added event came from a source not covered in `.agents/skills/event-scanner/assets/sources.md`.
+    - Suggest adding a new taste-profile interest only if the added event reveals a recurring preference not already covered in `.agents/skills/event-scanner/assets/taste-profile.md`.
 14. If neither a source nor taste-profile update should be suggested, write exactly: `Post-add learning check: no new suggestions`.
 15. Do not justify the absence of suggestions.
-16. Do not write these suggestions to run notes or preference/source files unless the user explicitly approves the edit.
+16. Do not write these suggestions to run notes or reference files unless the user explicitly approves the edit.
 
 ## Field Mapping
 
@@ -55,7 +48,7 @@ Do not log the created calendar event details in run notes unless the user asks.
 
 ## Learning Suggestions
 
-Normal scans should not suggest new primary sources or taste-profile interests. This skill is the only place to suggest them, because adding an event to the calendar is a strong signal.
+Normal scans should not suggest new primary sources or taste-profile interests. This step is the only place to suggest them, because adding an event to the calendar is a strong signal.
 
 Always send a brief `Post-add learning check` chat message after calendar creation.
 
@@ -76,4 +69,4 @@ Post-add learning check: no new suggestions
 
 ## Output
 
-When invoked, explicitly say: "[Using event-scanner-add-to-calendar skill]"
+When starting this step, explicitly say: "[Step 5: Add to Calendar]"

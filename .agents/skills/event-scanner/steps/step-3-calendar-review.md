@@ -1,23 +1,16 @@
----
-name: event-scanner-calendar-review
-description: Use during every Event Scanner run after scoring and before shortlist review when calendar context is available, user-provided, or requested. Checks event timing against availability while preserving privacy.
-metadata:
-  short-description: Review calendar practicality
----
+# Step 3: Calendar Review
 
-# Event Scanner Calendar Review
-
-Use this skill to adjust event practicality using calendar availability context.
+Adjust event practicality using calendar availability context.
 
 ## Inputs
 
-- Scored candidate events.
+- Scored candidate events from step-2-scoring.
 - Event date/time and expected duration.
 - Calendar availability context, when available or provided by the user.
 - Google Calendar availability lookup, when the connector is available.
-- `docs/privacy-and-access.md`.
-- `preferences/availability-rules.md`.
-- `preferences/scoring-rubric.md`.
+- `.agents/skills/event-scanner/references/privacy-and-access.md`.
+- `.agents/skills/event-scanner/references/availability-rules.md`.
+- `.agents/skills/event-scanner/references/scoring-rubric.md`.
 
 ## Procedure
 
@@ -50,4 +43,4 @@ Calendar review should influence ranking and caveats, but it should not expose p
 
 ## Output
 
-When invoked, explicitly say: "[Using event-scanner-calendar-review skill]"
+When starting this step, explicitly say: "[Step 3: Calendar Review]"
