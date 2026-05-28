@@ -2,6 +2,40 @@
 
 This runtime should feel native to your coding agent: mostly documents, skills, checklists, and run notes, with code added only when it clearly reduces repeated friction.
 
+## Boot Sequence
+
+Read these files before every scan:
+
+1. `docs/privacy-and-access.md` — storage and access rules
+2. `preferences/sources.md` — primary sources per location; resolve scan location here
+3. `preferences/taste-profile.md` — interests, dealbreakers, and surprise signals
+4. `preferences/scoring-rubric.md` — ranking factors, labels, and explanation requirements
+5. `preferences/availability-rules.md` — geography, practicality caveats, calendar privacy
+
+## Skill Pipeline
+
+Invoke these repo-local skills in order for every scan:
+
+1. `event-scanner-run` — creates the run note before any other work starts
+2. `event-scanner-discovery` — finds candidate events from primary and public sources
+3. `event-scanner-scoring` — scores and ranks candidates using the rubric
+4. `event-scanner-calendar-review` — checks calendar practicality
+5. `event-scanner-shortlist-review` — produces the final ranked shortlist in the run note
+
+Each skill logs itself to the run note when it starts. A skipped skill is a defect — call it out and repair it before finishing.
+
+For adding a specific event to Google Calendar, invoke `event-scanner-add-to-calendar` only when the user explicitly asks.
+
+## Quick Reference
+
+- **Default location:** Copenhagen area
+- **Standard locations:** Copenhagen area, Malmö
+- **Scan location rule:** use the user's requested location; if none given, use the default
+- **Scoring labels:** Strong pick / Worth considering / Maybe / Skip for now
+- **Near-term (≤14 days):** prefer short, free/cheap, low-commitment events
+- **Farther-future:** allow longer, higher-commitment events when fit is strong
+- **Dealbreakers (always filter out):** fully booked, women/non-binary only, student-only, under-30-only, strongly misaligned with vegan/feminist/consent-aware values
+
 ## Runtime Boundary
 
 Operate inside this runtime package.

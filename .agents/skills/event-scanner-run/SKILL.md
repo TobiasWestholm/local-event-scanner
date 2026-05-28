@@ -12,7 +12,7 @@ This is the runtime-scoped entrypoint skill for operating the event scanner.
 ## Procedure
 
 1. Treat the current directory as the runtime root.
-2. Follow the runtime boot sequence in `AGENTS.md`.
+2. Follow the boot sequence in `docs/operating-model.md`.
 3. Create a new empty run note in `runs/` before discovery starts.
 4. Add `event-scanner-run` to the run note's `Skills used` list immediately.
 5. Apply these runtime-scoped repo-local skills in order:
