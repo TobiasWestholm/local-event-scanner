@@ -47,3 +47,7 @@ Use this skill to adjust event practicality using calendar availability context.
 ## Rule
 
 Calendar review should influence ranking and caveats, but it should not expose private calendar details in the final shortlist or run note.
+
+## Output
+
+When invoked, explicitly say: "[Using event-scanner-calendar-review skill]"

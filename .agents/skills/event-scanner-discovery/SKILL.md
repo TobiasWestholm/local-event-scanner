@@ -48,5 +48,5 @@ Use this structure when possible:
 
 ## Output
 
-Return candidate events with source links and confidence. Do not produce the final ranked shortlist unless also using `event-scanner-shortlist-review`.
+Return candidate events with source links and confidence, usually a minimum of 8 events unless the request is very niche. Do not produce the final ranked shortlist unless also using `event-scanner-shortlist-review`.
 When invoked, explicitly say: "[Using event-scanner-discovery skill]"

@@ -48,3 +48,7 @@ Use this skill when evaluating candidate events against the human's preferences.
 ## Rule
 
 Do not suggest preference updates during scoring or normal scans. Learning suggestions belong only in `event-scanner-add-to-calendar` after the user explicitly adds an event to Google Calendar.
+
+## Output
+
+When invoked, explicitly say: "[Using event-scanner-scoring skill]"

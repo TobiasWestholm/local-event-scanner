@@ -73,3 +73,7 @@ When there are no suggestions, use exactly:
 ```md
 Post-add learning check: no new suggestions
 ```
+
+## Output
+
+When invoked, explicitly say: "[Using event-scanner-add-to-calendar skill]"

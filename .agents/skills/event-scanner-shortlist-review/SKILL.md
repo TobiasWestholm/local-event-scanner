@@ -19,7 +19,7 @@ Use this skill when turning scored candidates into the final user-facing event s
 ## Procedure
 
 1. Add `event-scanner-shortlist-review` to the current run note's `Skills used` list before shortlist review starts.
-2. Select the most useful ranked shortlist, usually 3 to 7 events.
+2. Select the most useful ranked shortlist, usually 6 to 12 events.
 3. Keep the output concise and decision-oriented.
 4. Include source links, caveats, confidence, and next actions.
 5. Do not include proposed source additions or taste-profile update suggestions in the run note.
@@ -54,3 +54,7 @@ Final run notes should be lean. Intermediate sections are working areas only; re
 - `Context`
 - `Ranked Shortlist`
 - `Privacy Check`
+
+## Output
+
+When invoked, explicitly say: "[Using event-scanner-shortlist-review skill]"
