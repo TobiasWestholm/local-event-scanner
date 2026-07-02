@@ -1,6 +1,7 @@
 ---
 name: local-event-scanner
 description: Use when the user wants to discover real-world events and gatherings in a specific city, area, or region, within an upcoming date range. Also triggers when the user asks to scan, shortlist, or find events matched to their interests. Does not handle meeting planning.
+version: 1.1.4
 metadata:
   short-description: Find and shortlist events for the user
 ---
