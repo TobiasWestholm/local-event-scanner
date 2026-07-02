@@ -4,22 +4,25 @@ An agent skill for discovering, scoring, and shortlisting local events matched t
 
 Supports optional Google Calendar integration for availability checks and adding events.
 
-## How to install
+## How to Install
 
-There are two ways to use this skill:
+To use this skill, clone or copy this repository into your project's custom skills directory as a folder named `local-event-scanner`.
 
-**As a standalone project** — clone this repo and open the folder in your coding agent. The agent reads `CLAUDE.md` or `AGENTS.md` at the root and is ready to scan immediately after setup.
+For example, using git from your project root:
+```bash
+git clone https://github.com/TobiasWestholm/local-event-scanner.git .agents/skills/local-event-scanner
+```
 
-**As a skill in an existing project** — copy the `skills/event-scanner/` folder into your project's `skills/` directory. Your agent will pick it up automatically. No other files from this repo are needed.
+Your agent will automatically discover the skill and make it available.
 
-## Setup
+## Setup (Optional)
 
-Once installed, send the prompt below to your agent. Replace the `FILL IN` placeholders with your actual preferences before sending.
+The setup process can be handled automatically by your agent. If the agent does not set it up automatically, or if you prefer to trigger configuration manually, send the prompt below to your agent (replacing the `FILL IN` placeholders with your actual preferences):
 
 ```text
 Set up the event scanner skill for me.
 
-First, create my personal configuration files by copying the example files in skills/event-scanner/assets/:
+First, create my personal configuration files by copying the example files in the skill's assets/ folder:
 - Copy taste-profile.example.md to taste-profile.md in the same folder
 - Copy sources.example.md to sources.md in the same folder
 
@@ -52,6 +55,6 @@ Just ask your agent for event suggestions. Examples:
 - *"Find me AI events in the next two weeks."*
 - *"Any good things to do in Paris this summer?"*
 
-The agent will invoke the `event-scanner` skill, run discovery and scoring, and return a ranked shortlist with source links and caveats. Scan results are saved to `skills/event-scanner/runs/`.
+The agent will invoke the `local-event-scanner` skill, run discovery and scoring, and return a ranked shortlist with source links and caveats. Scan results are saved to the skill's `runs/` directory.
 
 To add a shortlisted event to your calendar, tell your agent explicitly: *"Add X to my calendar."*

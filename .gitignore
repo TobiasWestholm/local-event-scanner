@@ -1,9 +1,11 @@
 # Agent configuration (local only)
 /.claude/
+.DS_Store
+/.DS_Store
 
 # Local user configuration (personal, not shared)
-/skills/event-scanner/assets/taste-profile.md
-/skills/event-scanner/assets/sources.md
+/assets/taste-profile.md
+/assets/sources.md
 
 # Run outputs
-/skills/event-scanner/runs/*.md
+/runs/*.md
